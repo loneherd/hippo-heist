@@ -2,7 +2,7 @@
 
 **Date:** 2026-09-29
 **Status:** Draft, awaiting Brian's review
-**Repo:** `wickedhardflip/hippo-heist` (public), work on the `rebuild` branch
+**Repo:** `loneherd/hippo-heist` (public), work on the `rebuild` branch
 
 ---
 
