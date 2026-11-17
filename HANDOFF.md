@@ -7,7 +7,7 @@ Player-facing docs are in [README.md](README.md). Release notes are in [CHANGELO
 ## Current state
 
 - Version 2.1 (the `VERSION` file). Live at https://loneherd.github.io/hippo-heist/
-- The repository now lives at `loneherd/hippo-heist`. It used to be `wickedhardflip/hippo-heist`, and GitHub redirects the old name for git and the API, but the old Pages address (https://wickedhardflip.github.io/hippo-heist/) now returns 404. Older notes and commits mention the old address.
+- The owner renamed their GitHub account from `wickedhardflip` to `loneherd` (confirmed 2026-11-17), so the repository is now `loneherd/hippo-heist`. The account id (108009433) and the noreply commit email are unchanged. GitHub redirects the old name for git and the API, but the old Pages address (https://wickedhardflip.github.io/hippo-heist/) now returns 404. Older notes and commits mention the old address.
 - Four 3D missions, touch controls, and an online leaderboard, all merged to `main` on 2026-10-17 (PRs 2 to 5).
 - The original 2D game is playable at `/classic/`.
 - All feature branches are merged. `main` is the only branch that matters.
@@ -16,7 +16,7 @@ Player-facing docs are in [README.md](README.md). Release notes are in [CHANGELO
 
 - Commits must not credit Claude. No `Co-Authored-By: Claude` trailer, no `Claude-Session` trailer, and author/committer set to the owner, not `Claude <noreply@anthropic.com>`. The owner had Claude removed from the repo's contributor list once already. Commit with:
 
-      git -c user.name=wickedhardflip -c user.email=108009433+wickedhardflip@users.noreply.github.com commit -m "..."
+      git -c user.name=loneherd -c user.email=108009433+wickedhardflip@users.noreply.github.com commit -m "..."
 
 - Open a pull request for review rather than pushing straight to `main`, unless asked to ship directly.
 - Keep communication concise and in plain text. Give an accuracy rating, flag assumptions, and say plainly when something was not verified (for example, the live site could not be opened).
@@ -120,7 +120,7 @@ Story note: missions 1 to 3 establish that the leopard eats bananas. Mission 4 e
 - 2026-10-16: 2.0, full 3D rewrite (PR 1). Three missions, seven power-ups, four difficulties, rebindable keys, burst sprint, 5-banana carry cap, killcam. 2D game moved to `/classic/`. Claude-authored commits were rewritten to the owner. Tag `v2.0.0`.
 - 2026-10-17: 2.1. Touch controls (PR 2), Mission 4 Last Stop (PR 3), online leaderboard (PR 4), Mission 4 banana story fix (PR 5).
 - 2026-10-21: leaderboard key exposure check, nothing exposed.
-- 2026-11-17: repo found moved to `loneherd/hippo-heist` (new Pages address). Site URLs and Worker origins updated. This handoff file, `CLAUDE.md`, and early dev screenshots in `docs/screenshots/dev/`.
+- 2026-11-17: GitHub account renamed to `loneherd`, so the repo and Pages address moved. Site URLs and Worker origins updated. This handoff file, `CLAUDE.md`, and early dev screenshots in `docs/screenshots/dev/`.
 
 ## Branches and tags
 
