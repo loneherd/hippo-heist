@@ -134,6 +134,10 @@ This writes `index.html`, the page GitHub Pages serves. It also writes `game.htm
 
 Built with Three.js (WebGL), the Web Audio API for sound, and plain JavaScript.
 
+## Developer handoff
+
+Architecture, deployment, leaderboard setup, required secrets and open issues are documented in [HANDOFF.md](HANDOFF.md).
+
 ## License
 
 MIT License. Feel free to use, modify and share.
