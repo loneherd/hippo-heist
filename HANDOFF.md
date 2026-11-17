@@ -120,7 +120,7 @@ Story note: missions 1 to 3 establish that the leopard eats bananas. Mission 4 e
 - 2026-10-16: 2.0, full 3D rewrite (PR 1). Three missions, seven power-ups, four difficulties, rebindable keys, burst sprint, 5-banana carry cap, killcam. 2D game moved to `/classic/`. Claude-authored commits were rewritten to the owner. Tag `v2.0.0`.
 - 2026-10-17: 2.1. Touch controls (PR 2), Mission 4 Last Stop (PR 3), online leaderboard (PR 4), Mission 4 banana story fix (PR 5).
 - 2026-10-21: leaderboard key exposure check, nothing exposed.
-- 2026-11-17: GitHub account renamed to `loneherd`, so the repo and Pages address moved. Site URLs and Worker origins updated. This handoff file, `CLAUDE.md`, and early dev screenshots in `docs/screenshots/dev/`.
+- 2026-11-17: GitHub account renamed to `loneherd`, so the repo and Pages address moved. Site URLs and Worker origins updated, Worker redeployed. This handoff file, `CLAUDE.md`, and early dev screenshots in `docs/screenshots/dev/`.
 
 ## Branches and tags
 
@@ -137,11 +137,11 @@ Story note: missions 1 to 3 establish that the leopard eats bananas. Mission 4 e
 - Mission 4 police balance may be too harsh. In a headless test six officers killed an idle hippo in about 6 seconds.
 - Farmers chase about 13% faster than the original 3D build. Walking no longer outruns them but a burst does. This was a balance call that the owner has not confirmed.
 - Leaderboard scores are computed in the browser and the Worker has no auth, so scripted fake scores are possible outside a browser (the Origin check can be spoofed). Rate limits (20 posts per hour per IP) contain it. Bad rows can be deleted from the D1 console.
-- On 2026-11-17 the deployed Worker still only allowed `https://wickedhardflip.github.io`, so the live game at loneherd.github.io could not load or post scores. The fix is in `wrangler.toml` and takes effect only after a Worker redeploy. Check with:
+- 2026-11-17: the Worker was redeployed with both origins (version 4aa59ba6) after the username change broke the live leaderboard. To check an origin:
 
       curl -s -X POST -H 'Origin: https://loneherd.github.io' -H 'content-type: application/json' -d '{"mission":1,"difficulty":"x"}' https://hippo-heist-leaderboard.bri-wag.workers.dev/run
 
-  `bad difficulty` means the origin is allowed. `origin not allowed` means the redeploy is still needed.
+  `bad difficulty` means the origin is allowed. `origin not allowed` means it is not.
 - `IP_SALT` may not be set as a Worker secret, in which case IP hashes use a public default.
 
 ## Things that did not carry over from the old Claude account
