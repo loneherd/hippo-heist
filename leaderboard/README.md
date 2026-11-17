@@ -16,7 +16,7 @@ The score is computed in the player's browser, so a determined player can still 
 - The reported mission time cannot be longer than the real time since the run started, and must be at least 60 seconds.
 - The score must be at most `3000 + 25 x seconds`, and the leopard must have been fed enough bananas to break free.
 - Each address can start 60 runs and post 20 scores per hour.
-- Writes are only accepted from the origins in `ALLOWED_ORIGINS`.
+- Writes are only accepted from the origins in `ALLOWED_ORIGINS` (wrangler.toml).
 - Names are capped at 24 characters with control and hidden characters removed. The game shows them as plain text.
 
 To remove a bad entry, run `DELETE FROM scores WHERE id = ...` against the database in the Cloudflare dashboard (D1 > hippo-heist-leaderboard > Console).

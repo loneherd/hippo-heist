@@ -6,7 +6,8 @@ Player-facing docs are in [README.md](README.md). Release notes are in [CHANGELO
 
 ## Current state
 
-- Version 2.1 (the `VERSION` file). Live at https://wickedhardflip.github.io/hippo-heist/
+- Version 2.1 (the `VERSION` file). Live at https://loneherd.github.io/hippo-heist/
+- The repository now lives at `loneherd/hippo-heist`. It used to be `wickedhardflip/hippo-heist`, and GitHub redirects the old name for git and the API, but the old Pages address (https://wickedhardflip.github.io/hippo-heist/) now returns 404. Older notes and commits mention the old address.
 - Four 3D missions, touch controls, and an online leaderboard, all merged to `main` on 2026-10-17 (PRs 2 to 5).
 - The original 2D game is playable at `/classic/`.
 - All feature branches are merged. `main` is the only branch that matters.
@@ -71,7 +72,7 @@ Code is in `leaderboard/` (see [leaderboard/README.md](leaderboard/README.md) fo
 
 - Cloudflare Worker `hippo-heist-leaderboard`, live at https://hippo-heist-leaderboard.bri-wag.workers.dev
 - Cloudflare D1 database `hippo-heist-leaderboard` (its id is in `wrangler.toml`; that id is not a secret). Tables come from `schema.sql` and already exist.
-- The Worker only accepts writes from the origins in `ALLOWED_ORIGINS` (`https://wickedhardflip.github.io`). Any other copy of the game, including the claude.ai artifact, cannot post scores.
+- The Worker only accepts requests from the origins in `ALLOWED_ORIGINS` in `wrangler.toml` (`https://loneherd.github.io` and the old `https://wickedhardflip.github.io`). If the Pages address changes again, update this list and redeploy the Worker, or the leaderboard stops working on the live site. Any other copy of the game, including the claude.ai artifact, cannot post scores.
 - For testing, `?lb=<url>` on the game URL points it at a different Worker.
 
 Secrets and config that are not in the repo and must be provided again in any new environment:
@@ -119,7 +120,7 @@ Story note: missions 1 to 3 establish that the leopard eats bananas. Mission 4 e
 - 2026-10-16: 2.0, full 3D rewrite (PR 1). Three missions, seven power-ups, four difficulties, rebindable keys, burst sprint, 5-banana carry cap, killcam. 2D game moved to `/classic/`. Claude-authored commits were rewritten to the owner. Tag `v2.0.0`.
 - 2026-10-17: 2.1. Touch controls (PR 2), Mission 4 Last Stop (PR 3), online leaderboard (PR 4), Mission 4 banana story fix (PR 5).
 - 2026-10-21: leaderboard key exposure check, nothing exposed.
-- 2026-11-17: this handoff file, `CLAUDE.md`, and early dev screenshots in `docs/screenshots/dev/`.
+- 2026-11-17: repo found moved to `loneherd/hippo-heist` (new Pages address). Site URLs and Worker origins updated. This handoff file, `CLAUDE.md`, and early dev screenshots in `docs/screenshots/dev/`.
 
 ## Branches and tags
 
@@ -128,7 +129,7 @@ Story note: missions 1 to 3 establish that the leopard eats bananas. Mission 4 e
 - Tag `v2.0.0`: the first 3D release.
 - `new-version`, `mobile-touch-controls`, `leaderboard`, `village-mission`, `mission4-bananas`: merged feature branches, safe to delete if the owner wants.
 - `rebuild`, `3d-rewrite`: older experiments. Leave them alone.
-- A separate private repo `wickedhardflip/hippo-heist-3d` exists. It is not the Pages site and is not used.
+- A separate private repo `hippo-heist-3d` (under the same owner) exists. It is not the Pages site and is not used.
 
 ## Known issues and open ideas
 
@@ -136,6 +137,11 @@ Story note: missions 1 to 3 establish that the leopard eats bananas. Mission 4 e
 - Mission 4 police balance may be too harsh. In a headless test six officers killed an idle hippo in about 6 seconds.
 - Farmers chase about 13% faster than the original 3D build. Walking no longer outruns them but a burst does. This was a balance call that the owner has not confirmed.
 - Leaderboard scores are computed in the browser and the Worker has no auth, so scripted fake scores are possible outside a browser (the Origin check can be spoofed). Rate limits (20 posts per hour per IP) contain it. Bad rows can be deleted from the D1 console.
+- On 2026-11-17 the deployed Worker still only allowed `https://wickedhardflip.github.io`, so the live game at loneherd.github.io could not load or post scores. The fix is in `wrangler.toml` and takes effect only after a Worker redeploy. Check with:
+
+      curl -s -X POST -H 'Origin: https://loneherd.github.io' -H 'content-type: application/json' -d '{"mission":1,"difficulty":"x"}' https://hippo-heist-leaderboard.bri-wag.workers.dev/run
+
+  `bad difficulty` means the origin is allowed. `origin not allowed` means the redeploy is still needed.
 - `IP_SALT` may not be set as a Worker secret, in which case IP hashes use a public default.
 
 ## Things that did not carry over from the old Claude account

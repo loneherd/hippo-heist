@@ -4,7 +4,7 @@ compatibility_date = "2025-09-01"
 
 # Sites allowed to read and post scores (comma separated).
 [vars]
-ALLOWED_ORIGINS = "https://wickedhardflip.github.io"
+ALLOWED_ORIGINS = "https://loneherd.github.io,https://wickedhardflip.github.io"
 
 [[d1_databases]]
 binding = "DB"

@@ -6,7 +6,7 @@ Version 2.1 ([changelog](CHANGELOG.md))
 
 The farmers of the lower valley have caught a leopard, and they are starving him in a cage. You are a river hippo with a plan: raid their banana groves, smuggle the fruit to the captive cat, and feed him until he is strong enough to break free. Then get out the way you came in, through the water, where no farmer can keep up and your bite is lethal.
 
-### [▶ Play Hippo Heist in your browser](https://wickedhardflip.github.io/hippo-heist/)
+### [▶ Play Hippo Heist in your browser](https://loneherd.github.io/hippo-heist/)
 
 No download, no install. Runs in any modern browser with WebGL. Play with keyboard and mouse on a computer, or with on-screen touch controls on a phone or tablet.
 
@@ -118,7 +118,7 @@ Look for these scattered around each farm.
 
 The original 2D arcade version, with touch controls for phones, is still playable:
 
-### [▶ Play Hippo Heist Classic](https://wickedhardflip.github.io/hippo-heist/classic/)
+### [▶ Play Hippo Heist Classic](https://loneherd.github.io/hippo-heist/classic/)
 
 Its source is preserved at the `v1-original` tag and on the `legacy-2d-original` branch.
 

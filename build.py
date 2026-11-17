@@ -10,8 +10,8 @@ open('game.html','w',encoding='utf-8',newline='\n').write(body)
 test='<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"></head><body>'+body.replace(three_cdn,'<script src="three.min.js"></script>')+'</body></html>'
 open('test.html','w',encoding='utf-8',newline='\n').write(test)
 
-# index.html: the page GitHub Pages serves at https://wickedhardflip.github.io/hippo-heist/
-site='https://wickedhardflip.github.io/hippo-heist'
+# index.html: the page GitHub Pages serves at https://loneherd.github.io/hippo-heist/
+site='https://loneherd.github.io/hippo-heist'
 desc='A hippo stealing bananas to feed a hungry leopard while avoiding angry farmers.'
 meta=f'''<meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
